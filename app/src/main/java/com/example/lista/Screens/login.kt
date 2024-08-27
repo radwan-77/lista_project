@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -30,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.lista.R
+import com.example.lista.ui.theme.backg
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,15 +46,13 @@ fun LoginScreen(nav: NavController) {
 //    }
 
     Column (
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White) ,
+        modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
-        Image(painter = painterResource(id = R.drawable.ic_launcher_background) ,contentDescription = "Login image",
-            modifier = Modifier.size(200.dp) )
+        Image(painter = painterResource(id = R.drawable.background) ,contentDescription = "Login image",
+            modifier = Modifier.size(200.dp))
         Text(text = "Welcome Back", fontSize = 28.sp, fontWeight = FontWeight.Bold )
         Spacer(modifier = Modifier.height(4.dp))
         Text(text = "Login to your account")

@@ -15,7 +15,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.lista.Model.Route
+import com.example.lista.Screens.EmailScreen
+import com.example.lista.Screens.ForgetScreen
+import com.example.lista.Screens.HomeScreen
+import com.example.lista.Screens.RegisterScreen
 import com.example.lista.ui.theme.ListaTheme
+import com.example.lista.ui.theme.backg
 import com.example.todoapp.View.LoginScreen
 
 class MainActivity : ComponentActivity() {
@@ -23,14 +28,30 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            backg()
             ListaTheme {
                 val nav = rememberNavController()
                 NavHost(navController = nav, startDestination = Route.login, builder = {
                     composable(Route.login) {
                         LoginScreen(nav)
                     }
-
-                }
+                    composable(Route.home)
+                    {
+                        HomeScreen(nav)
+                    }
+                    composable(Route.register)
+                    {
+                        RegisterScreen(nav)
+                    }
+                    composable(Route.forgetPassword)
+                    {
+                        ForgetScreen(nav)
+                    }
+                    composable(Route.emailVerification)
+                    {
+                        EmailScreen(nav)
+                    }
+               }
                 )
             }
         }
