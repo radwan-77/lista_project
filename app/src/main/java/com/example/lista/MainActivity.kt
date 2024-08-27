@@ -19,6 +19,8 @@ import com.example.lista.Screens.EmailScreen
 import com.example.lista.Screens.ForgetScreen
 import com.example.lista.Screens.HomeScreen
 import com.example.lista.Screens.RegisterScreen
+import com.example.lista.Screens.SplashScreen
+import com.example.lista.Screens.WelcomeScreen
 import com.example.lista.ui.theme.ListaTheme
 import com.example.lista.ui.theme.backg
 import com.example.todoapp.View.LoginScreen
@@ -34,6 +36,12 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = nav, startDestination = Route.login, builder = {
                     composable(Route.login) {
                         LoginScreen(nav)
+                    }
+                    composable(Route.splash) {
+                        SplashScreen(nav)
+                    }
+                    composable(Route.WelcomePage) {
+                        WelcomeScreen(nav)
                     }
                     composable(Route.home)
                     {
@@ -57,6 +65,10 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
+
+
 
 
 

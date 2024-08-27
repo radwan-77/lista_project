@@ -30,6 +30,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.lista.Model.Route
 import com.example.lista.R
 import com.example.lista.ui.theme.backg
 
@@ -82,19 +83,20 @@ fun LoginScreen(nav: NavController) {
 
 
         Button(onClick = {
-            when {
-//                email.isEmpty() -> {
-//                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
-//                }
-//                password.length < 8 -> {
-//                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
-//                }
-//                else -> {
-//                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-//                    nav.navigate(Route.Home + "/$email" + "/$password")
-//                    // Proceed with login logic
-//                }
-            }
+            nav.navigate(Route.home)
+//            when {
+////                email.isEmpty() -> {
+////                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
+////                }
+////                password.length < 8 -> {
+////                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+////                }
+////                else -> {
+////                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+////                    nav.navigate(Route.Home + "/$email" + "/$password")
+////                    // Proceed with login logic
+////                }
+//            }
         }) {
             Text(text = "Login")
         }

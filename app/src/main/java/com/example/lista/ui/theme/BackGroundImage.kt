@@ -11,7 +11,6 @@ import com.example.lista.R
 
 @Composable
 fun backg()
-
 {
     Image(painter = painterResource(id = R.drawable.background),
         contentDescription =null,
