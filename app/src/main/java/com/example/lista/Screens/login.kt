@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -45,17 +46,19 @@ fun LoginScreen(nav: NavController) {
 //        mutableStateOf("")
 //    }
 
+
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     )
     {
-        Image(painter = painterResource(id = R.drawable.background) ,contentDescription = "Login image",
-            modifier = Modifier.size(200.dp))
-        Text(text = "Welcome Back", fontSize = 28.sp, fontWeight = FontWeight.Bold )
+        Image(painter = painterResource(id = R.drawable.asdaa) ,contentDescription = "Login image",
+            modifier = Modifier.size(150.dp))
+        Spacer(modifier = Modifier.height(250.dp))
+
+        Text(text = "Login", fontSize = 28.sp, fontWeight = FontWeight.Bold )
         Spacer(modifier = Modifier.height(4.dp))
-        Text(text = "Login to your account")
 
 
 
@@ -81,7 +84,14 @@ fun LoginScreen(nav: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
 
-        Button(onClick = {
+        Button(
+            colors =
+                ButtonDefaults.buttonColors(
+                containerColor = Color.Black,
+                contentColor = Color.White
+            ),
+            modifier = Modifier.size(200.dp, 50.dp),
+            onClick = {
             when {
 //                email.isEmpty() -> {
 //                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
@@ -100,8 +110,57 @@ fun LoginScreen(nav: NavController) {
         }
 
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
+
+
+        Button(
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.White,
+                contentColor = Color.Black
+            ),
+            modifier = Modifier.size(200.dp, 50.dp),
+            onClick = {
+                when {
+//                email.isEmpty() -> {
+//                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
+//                }
+//                password.length < 8 -> {
+//                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+//                }
+//                else -> {
+//                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+//                    nav.navigate(Route.Home + "/$email" + "/$password")
+//                    // Proceed with login logic
+//                }
+                }
+            }) {
+            Text(text = "Register")
+        }
+
+        Button(
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color.White,
+                contentColor = Color.Black
+            ),
+            modifier = Modifier.size(200.dp, 50.dp),
+            onClick = {
+                when {
+//                email.isEmpty() -> {
+//                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
+//                }
+//                password.length < 8 -> {
+//                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
+//                }
+//                else -> {
+//                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+//                    nav.navigate(Route.Home + "/$email" + "/$password")
+//                    // Proceed with login logic
+//                }
+                }
+            }) {
+            Text(text = "Forget your password?")
+        }
 
     }
 

@@ -18,10 +18,10 @@ import com.example.lista.Model.Route
 import com.example.lista.Screens.EmailScreen
 import com.example.lista.Screens.ForgetScreen
 import com.example.lista.Screens.HomeScreen
-import com.example.lista.Screens.RegisterScreen
 import com.example.lista.ui.theme.ListaTheme
 import com.example.lista.ui.theme.backg
 import com.example.todoapp.View.LoginScreen
+import com.example.todoapp.View.RegisterScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    ListaTheme{
+        var nav = rememberNavController()
+        RegisterScreen(nav)
+    }
+}
 
 
 
