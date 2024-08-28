@@ -18,22 +18,21 @@ import com.example.lista.Model.Route
 import com.example.lista.Screens.EmailScreen
 import com.example.lista.Screens.ForgetScreen
 import com.example.lista.Screens.HomeScreen
-import com.example.lista.Screens.RegisterScreen
 import com.example.lista.Screens.SplashScreen
 import com.example.lista.Screens.WelcomeScreen
 import com.example.lista.ui.theme.ListaTheme
 import com.example.lista.ui.theme.backg
 import com.example.todoapp.View.LoginScreen
+import com.example.todoapp.View.RegisterScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            backg()
             ListaTheme {
                 val nav = rememberNavController()
-                NavHost(navController = nav, startDestination = Route.login, builder = {
+                NavHost(navController = nav, startDestination = Route.WelcomePage, builder = {
                     composable(Route.login) {
                         LoginScreen(nav)
                     }

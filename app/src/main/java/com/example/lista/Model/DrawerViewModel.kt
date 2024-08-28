@@ -19,14 +19,4 @@ class DrawerViewModel : ViewModel() {
     val unSelectedIcon : ImageVector,
     val BadgeCount : Int? = null
     )
-    
-    val itemsDrawerBar = listOf(
-        DrawerViewModel.DrawerNavItem("Home", Icons.Default.Menu, Icons.Default.Menu),
-        DrawerViewModel.DrawerNavItem("Pomodoro", Icons.Default.Menu, Icons.Default.Menu),
-        DrawerViewModel.DrawerNavItem("Profile", Icons.Default.Menu, Icons.Default.Menu)
-    )
-    fun getDrawerItems() = itemsDrawerBar
-
-
-
 }

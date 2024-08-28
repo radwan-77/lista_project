@@ -20,7 +20,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
@@ -44,6 +47,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 
 import androidx.navigation.NavController
+import com.example.lista.Model.BottomNavItem
 import com.example.lista.Model.DrawerViewModel
 import com.example.lista.R
 import kotlinx.coroutines.launch
@@ -52,6 +56,18 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
 {
+
+
+// important variable to declare
+
+    // bottom bar
+    var selectedBottomBarIndex by rememberSaveable { mutableIntStateOf(0) }
+    val itemsBottomBar = listOf(
+            BottomNavItem("Home", Icons.Default.Home, Icons.Default.Home,),
+            BottomNavItem("Profile", Icons.Default.Person, Icons.Default.Person,),
+            BottomNavItem("Settings", Icons.Default.Settings, Icons.Default.Settings,),
+        )
+    // DrawerViewModel instance
     var selectedDrawerIndex by rememberSaveable { mutableIntStateOf(0) }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -76,7 +92,8 @@ fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
                             onClick = {
                                 selectedDrawerIndex = index
                                 scope.launch {
-                                    drawerState.close() // Close drawer after selection
+                                    drawerState.close()
+                                // Close drawer after selection
                                 }
                                 // Navigate to the corresponding screen
                                 when (index) {
