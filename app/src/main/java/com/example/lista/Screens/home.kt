@@ -1,7 +1,6 @@
 package com.example.lista.Screens
 
 
-
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -14,6 +13,7 @@ import androidx.compose.material3.Text as Text
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -45,28 +45,21 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 
 import androidx.navigation.NavController
 import com.example.lista.Model.BottomNavItem
 import com.example.lista.Model.DrawerViewModel
+import com.example.lista.Model.Route
 import com.example.lista.R
+import com.example.lista.ui.theme.BottomBar
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
-{
+fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel()) {
+    var selectedTab by rememberSaveable { mutableIntStateOf(0) }
 
-
-// important variable to declare
-
-    // bottom bar
-    var selectedBottomBarIndex by rememberSaveable { mutableIntStateOf(0) }
-    val itemsBottomBar = listOf(
-            BottomNavItem("Home", Icons.Default.Home, Icons.Default.Home,),
-            BottomNavItem("Profile", Icons.Default.Person, Icons.Default.Person,),
-            BottomNavItem("Settings", Icons.Default.Settings, Icons.Default.Settings,),
-        )
     // DrawerViewModel instance
     var selectedDrawerIndex by rememberSaveable { mutableIntStateOf(0) }
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -76,6 +69,7 @@ fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
         DrawerViewModel.DrawerNavItem("Pomodoro", Icons.Default.Menu, Icons.Default.Menu),
         DrawerViewModel.DrawerNavItem("Profile", Icons.Default.Menu, Icons.Default.Menu)
     )
+
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
@@ -91,15 +85,11 @@ fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
                             selected = index == selectedDrawerIndex,
                             onClick = {
                                 selectedDrawerIndex = index
-                                scope.launch {
-                                    drawerState.close()
-                                // Close drawer after selection
-                                }
-                                // Navigate to the corresponding screen
+                                scope.launch { drawerState.close() }
                                 when (index) {
-                                    0 -> nav.navigate("home")
-                                    1 -> nav.navigate("pomodoro")
-                                    2 -> nav.navigate("profile")
+                                    0 -> nav.navigate(Route.home)
+                                    1 -> nav.navigate(Route.home)
+                                    2 -> nav.navigate(Route.home)
                                 }
                             },
                             icon = {
@@ -142,20 +132,63 @@ fun HomeScreen(nav: NavController, viewModel: DrawerViewModel = viewModel())
                             }
                         },
                     )
+                },
+                bottomBar = {
+                    BottomBar(onItemSelected = { index ->
+                        selectedTab = index
+                    })
                 }
-            ) {
-                Column(
+            ) { paddingValues ->
+                Box(
                     modifier = Modifier
+                        .padding(paddingValues)
                         .fillMaxSize()
-                        .padding(it),
-                    verticalArrangement = Arrangement.Center,
-                ){
-                    Text(text = "kjdxhkfsd")
+                ) {
+                    when (selectedTab) {
+                        0 -> {
+                            // Home Content
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.fillMaxSize()
+                            ) {
+                                Text(text = "Home Screen")
+                            }
+                        }
+
+                        1 -> {
+                            // Profile Content
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.fillMaxSize()
+                            ) {
+                                Text(text = "Pomodoro Screen")
+                            }
+                        }
+
+                        2 -> {
+                            // Settings Content
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.fillMaxSize()
+                            ) {
+                                Text(text = "Calender Screen")
+                            }
+                        }
+                        3->{
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                modifier = Modifier.fillMaxSize()
+                            ) {
+                                Text(text = "Profile Screen")
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-
-
 }
-

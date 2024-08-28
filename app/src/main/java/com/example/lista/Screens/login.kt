@@ -66,11 +66,9 @@ fun LoginScreen(nav: NavController) {
                     horizontalAlignment = Alignment.CenterHorizontally
                 )
                 {
-//        Image(painter = painterResource(id = R.drawable.logo) ,contentDescription = "Login image",
-//            modifier = Modifier.size(150.dp))
-                    Spacer(modifier = Modifier.height(420.dp))
 
-                    Text(text = "Login", fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(450.dp))
+                    Text(text = "Login", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Color.Blue)
                     Spacer(modifier = Modifier.height(4.dp))
 
 
@@ -110,7 +108,7 @@ fun LoginScreen(nav: NavController) {
                             Route.register
 
                         }) {
-                        Text(text = "Register")
+                        Text(text = "Register" , color =  Color.Blue)
                     }
 
 
@@ -120,7 +118,7 @@ fun LoginScreen(nav: NavController) {
                             nav.navigate(Route.forgetPassword)
 
                         }) {
-                        Text(text = "Forget Password")
+                        Text(text = "Forget Password", color =  Color.Blue)
 
                     }
 

@@ -24,11 +24,20 @@ fun SplashScreen(nav: NavController)
 {
    LaunchedEffect(key1 = true)
    {
-        delay(3000)
+       delay(5000)
        nav.popBackStack()
        nav.navigate(Route.WelcomePage)
    }
     Box(
-        modifier = Modifier
+        modifier = Modifier.background(Color.Black)
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center
     )
+    {
+        Image(
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = "Logo",
+            modifier = Modifier.size(150.dp)
+        )
+    }
 }

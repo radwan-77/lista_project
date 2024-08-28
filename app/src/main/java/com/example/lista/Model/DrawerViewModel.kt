@@ -12,7 +12,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 
-class DrawerViewModel : ViewModel() {
+class DrawerViewModel : ViewModel()
+{
     data class DrawerNavItem (
     val title: String,
     val SelectedIcon : ImageVector,

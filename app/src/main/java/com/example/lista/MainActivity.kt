@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ListaTheme {
                 val nav = rememberNavController()
-                NavHost(navController = nav, startDestination = Route.WelcomePage, builder = {
+                NavHost(navController = nav, startDestination = Route.splash, builder = {
                     composable(Route.login) {
                         LoginScreen(nav)
                     }

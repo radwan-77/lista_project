@@ -31,6 +31,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.lista.Model.Route
 import com.example.lista.R
 import com.example.lista.ui.theme.backg
 
@@ -84,8 +85,6 @@ fun RegisterScreen(nav: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-
-
         Button(
             colors =
                 ButtonDefaults.buttonColors(
@@ -93,55 +92,11 @@ fun RegisterScreen(nav: NavController) {
                 contentColor = Color.White
             ),
             modifier = Modifier.size(200.dp, 50.dp),
-            onClick = {
-            when {
-//                email.isEmpty() -> {
-//                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
-//                }
-//                password.length < 8 -> {
-//                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
-//                }
-//                else -> {
-//                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-//                    nav.navigate(Route.Home + "/$email" + "/$password")
-//                    // Proceed with login logic
-//                }
-            }
+            onClick = {nav.navigate(Route.login)
         }) {
             Text(text = "Register")
         }
-
-
         Spacer(modifier = Modifier.height(16.dp))
-
-
-
-        Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.White,
-                contentColor = Color.Black
-            ),
-            modifier = Modifier.size(200.dp, 50.dp),
-            onClick = {
-                when {
-//                email.isEmpty() -> {
-//                    Toast.makeText(context, "Username cannot be empty", Toast.LENGTH_SHORT).show()
-//                }
-//                password.length < 8 -> {
-//                    Toast.makeText(context, "Password must be at least 8 characters long", Toast.LENGTH_SHORT).show()
-//                }
-//                else -> {
-//                    Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
-//                    nav.navigate(Route.Home + "/$email" + "/$password")
-//                    // Proceed with login logic
-//                }
-                }
-            }) {
-            Text(text = "Login")
-        }
-
-
-
     }
 
 }
